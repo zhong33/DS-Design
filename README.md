@@ -8,7 +8,7 @@
 * 景点信息、管理员密码更改
 * 数据加解密（密码）
 ### 二、模块结构
-![./xt.png]()
+![](./xt.png)
 ### 三、系统结构
 ```C
 #define M 8             // 景点个数
@@ -57,7 +57,7 @@ void showFloydResult(mgraph *g, int dist[][M], int path[][M]);      //输出floy
 void floyd(mgraph *g);                                              //floyd算法
 ```
 ### 五、井冈山景点路线图
-![./map.png]()
+![](./map.png)
 ### 六、备注
 * 编码格式：GBK
 * 编写过程中考虑到景点个数、景点间的距离基本上是保持不变的，因此景点信息增删功能并未实现
