@@ -52,9 +52,9 @@ void showPath(int path[], int v0, int v1);                          // 输出单
 void showResult(int v0, int v1, int dist[], int path[]);            // 输出最短路径
 
 // @Author why
-void showFloydPath(mgraph *g , int path[][M], int v0, int v);       //输出起点到终点的中间结点
-void showFloydResult(mgraph *g, int dist[][M], int path[][M]);      //输出floyd算法的结果
-void floyd(mgraph *g);                                              //floyd算法
+void showFloydPath(mgraph *g , int path[][M], int v0, int v);       // 输出起点到终点的中间结点
+void showFloydResult(mgraph *g, int dist[][M], int path[][M]);      // 输出floyd算法的结果
+void floyd(mgraph *g);                                              // floyd算法
 ```
 ### 五、井冈山景点路线图
 ![](./map.png)
