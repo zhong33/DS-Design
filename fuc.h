@@ -11,100 +11,100 @@
 
 typedef struct
 {
-    int num;         // ¾°µã±àºÅ
-    char name[20];   // ¾°µãÃû³Æ
-    char intro[400]; // ¾°µã¼ò½é
+    int num;         // æ™¯ç‚¹ç¼–å·
+    char name[20];   // æ™¯ç‚¹åç§°
+    char intro[400]; // æ™¯ç‚¹ç®€ä»‹
 } vertex;
 
-typedef struct // ¾°µãÍ¼½á¹¹Ìå
+typedef struct // æ™¯ç‚¹å›¾ç»“æ„ä½“
 {
-    vertex vexs[M];     // ¶¥µãĞÅÏ¢Êı×é
-    int edge[M][M];     // ÁÚ½Ó¾ØÕó
-    int vexNum, edgNum; // ¶¥µãÊıºÍ±ßÊı
+    vertex vexs[M];     // é¡¶ç‚¹ä¿¡æ¯æ•°ç»„
+    int edge[M][M];     // é‚»æ¥çŸ©é˜µ
+    int vexNum, edgNum; // é¡¶ç‚¹æ•°å’Œè¾¹æ•°
 } mgraph;
 
-// @Author Ñî»áÁè
-int menu();                      // Ö÷²Ëµ¥
-int Login();                     // ºóÌ¨µÇÂ¼Ğ£Ñé
-int Admin_Menu();                // ¹ÜÀíÔ±Ö÷²Ëµ¥
-int Judge_Num(int num);          // ¾°µã±àºÅÅĞ¶Ï
-void Change_Pwd();               // ¹ÜÀíÔ±ÃÜÂëĞŞ¸Ä
-void Admin_System();             // ºóÌ¨¹ÜÀíÏµÍ³
-void Exit(int *quit);            // Ö÷³ÌĞòÍË³ö
-void Admin_Exit(int *quit);      // ¹ÜÀíÔ±ÏµÍ³ÍË³ö
-void Create_Map(mgraph *g);      // ¶ÁÈ¡ÎÄ¼şÄÚÈİ½¨Á¢Í¼
-void All_Scenic(mgraph *g);      // Êä³öËùÓĞ¾°µãĞÅÏ¢
-void Change_Info(mgraph *g);     // ¾°µãĞÅÏ¢ĞŞ¸Ä
-void Search_Scenic(mgraph *g);   // ¾°µãĞÅÏ¢²éÑ¯
-void Search_Distance(mgraph *g); // ²éÑ¯ÓëËùÔÚÎ»ÖÃ×î½ü¾°µã
-void encrypt(char *s);           // ¼ÓÃÜ
-void decrypt(char *s);           // ½âÃÜ
+// @Author Rx762
+int menu();                      // ä¸»èœå•
+int Login();                     // åå°ç™»å½•æ ¡éªŒ
+int Admin_Menu();                // ç®¡ç†å‘˜ä¸»èœå•
+int Judge_Num(int num);          // æ™¯ç‚¹ç¼–å·åˆ¤æ–­
+void Change_Pwd();               // ç®¡ç†å‘˜å¯†ç ä¿®æ”¹
+void Admin_System();             // åå°ç®¡ç†ç³»ç»Ÿ
+void Exit(int *quit);            // ä¸»ç¨‹åºé€€å‡º
+void Admin_Exit(int *quit);      // ç®¡ç†å‘˜ç³»ç»Ÿé€€å‡º
+void Create_Map(mgraph *g);      // è¯»å–æ–‡ä»¶å†…å®¹å»ºç«‹å›¾
+void All_Scenic(mgraph *g);      // è¾“å‡ºæ‰€æœ‰æ™¯ç‚¹ä¿¡æ¯
+void Change_Info(mgraph *g);     // æ™¯ç‚¹ä¿¡æ¯ä¿®æ”¹
+void Search_Scenic(mgraph *g);   // æ™¯ç‚¹ä¿¡æ¯æŸ¥è¯¢
+void Search_Distance(mgraph *g); // æŸ¥è¯¢ä¸æ‰€åœ¨ä½ç½®æœ€è¿‘æ™¯ç‚¹
+void encrypt(char *s);           // åŠ å¯†
+void decrypt(char *s);           // è§£å¯†
 
-// @Author ÇØì¿çù
-void Ai_Plan(mgraph *g);                                            // dijkstraËã·¨Çó×î¶ÌÂ·¾¶
-void showPath(int path[], int v0, int v1);                          // Êä³öµ¥ÌõÂ·¾¢
-void showResult(int v0, int v1, int dist[], int path[]);            // Êä³ö×î¶ÌÂ·¾¶
+// @Author QWQ
+void Ai_Plan(mgraph *g);                                            // dijkstraç®—æ³•æ±‚æœ€çŸ­è·¯å¾„
+void showPath(int path[], int v0, int v1);                          // è¾“å‡ºå•æ¡è·¯åŠ²
+void showResult(int v0, int v1, int dist[], int path[]);            // è¾“å‡ºæœ€çŸ­è·¯å¾„
 
-// @Author Íõ»ÛÑş
-void showFloydPath(mgraph *g , int path[][M], int v0, int v);       //Êä³öÆğµãµ½ÖÕµãµÄÖĞ¼ä½áµã
-void showFloydResult(mgraph *g, int dist[][M], int path[][M]);      //Êä³öfloydËã·¨µÄ½á¹û
-void floyd(mgraph *g);                                              //floydËã·¨
+// @Author WHY
+void showFloydPath(mgraph *g , int path[][M], int v0, int v);       //è¾“å‡ºèµ·ç‚¹åˆ°ç»ˆç‚¹çš„ä¸­é—´ç»“ç‚¹
+void showFloydResult(mgraph *g, int dist[][M], int path[][M]);      //è¾“å‡ºfloydç®—æ³•çš„ç»“æœ
+void floyd(mgraph *g);                                              //floydç®—æ³•
 
-// Ö÷²Ëµ¥
+// ä¸»èœå•
 int menu()
 {
     int s;
-    printf("        ©°©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©´       \n");
-    printf("©°©¤©¤©¤©¤©¤©¤©¤©À »¶Ó­Ê¹ÓÃ¾®¸ÔÉ½µ¼ÓÎ×ÉÑ¯ÏµÍ³ ©È©¤©¤©¤©¤©¤©¤©´\n");
-    printf("©¦       ©¸©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¼      ©¦\n");
-    printf("©¦                                           ©¦\n");
-    printf("©¦         1.¾°µãĞÅÏ¢²éÑ¯                    ©¦\n");
-    printf("©¦                                           ©¦\n");
-    printf("©¦         2.¾°µãÂ·ÏßÖÇÄÜ¹æ»®                ©¦\n");
-    printf("©¦                                           ©¦\n");
-    printf("©¦         3.²éÑ¯ÀëÎÒ×î½üµÄ¾°µã              ©¦\n");
-    printf("©¦                                           ©¦\n");
-    printf("©¦         4.¾°ÇøÂ·Ïß²Î¿¼                    ©¦\n");
-    printf("©¦                                           ©¦\n");
-    printf("©¦         5.¹ÜÀíÔ±µÇÂ¼                      ©¦\n");
-    printf("©¦                                           ©¦\n");
-    printf("©¦         6.ÍË³öµ¼ÓÎ×ÉÑ¯ÏµÍ³                ©¦\n");
-    printf("©¦                                           ©¦\n");
-    printf("©¸©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¼\n\n");
-    printf("[-]Çë°´ÕÕÄúµÄĞèÇóÑ¡Ôñ²Ù×÷±àºÅ£º");
+    printf("        â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”       \n");
+    printf("â”Œâ”€â”€â”€â”€â”€â”€â”€â”œ æ¬¢è¿ä½¿ç”¨äº•å†ˆå±±å¯¼æ¸¸å’¨è¯¢ç³»ç»Ÿ â”¤â”€â”€â”€â”€â”€â”€â”\n");
+    printf("â”‚       â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜      â”‚\n");
+    printf("â”‚                                           â”‚\n");
+    printf("â”‚         1.æ™¯ç‚¹ä¿¡æ¯æŸ¥è¯¢                    â”‚\n");
+    printf("â”‚                                           â”‚\n");
+    printf("â”‚         2.æ™¯ç‚¹è·¯çº¿æ™ºèƒ½è§„åˆ’                â”‚\n");
+    printf("â”‚                                           â”‚\n");
+    printf("â”‚         3.æŸ¥è¯¢ç¦»æˆ‘æœ€è¿‘çš„æ™¯ç‚¹              â”‚\n");
+    printf("â”‚                                           â”‚\n");
+    printf("â”‚         4.æ™¯åŒºè·¯çº¿å‚è€ƒ                    â”‚\n");
+    printf("â”‚                                           â”‚\n");
+    printf("â”‚         5.ç®¡ç†å‘˜ç™»å½•                      â”‚\n");
+    printf("â”‚                                           â”‚\n");
+    printf("â”‚         6.é€€å‡ºå¯¼æ¸¸å’¨è¯¢ç³»ç»Ÿ                â”‚\n");
+    printf("â”‚                                           â”‚\n");
+    printf("â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜\n\n");
+    printf("[-]è¯·æŒ‰ç…§æ‚¨çš„éœ€æ±‚é€‰æ‹©æ“ä½œç¼–å·ï¼š");
     scanf("%d", &s);
     printf("\n\n");
     return s;
 }
 
-// ¹ÜÀíÔ±²Ëµ¥
+// ç®¡ç†å‘˜èœå•
 int Admin_Menu()
 {
     int s;
-    printf("        ©°©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©´       \n");
-    printf("©°©¤©¤©¤©¤©¤©¤©¤©À  »¶Ó­Ê¹ÓÃºóÌ¨¹ÜÀíÏµÍ³ ©È©¤©¤©¤©¤©¤©¤©´\n");
-    printf("©¦       ©¸©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¼      ©¦\n");
-    printf("©¦                                      ©¦\n");
-    printf("©¦         1.¾°µãĞÅÏ¢¸ü¸Ä               ©¦\n");
-    printf("©¦                                      ©¦\n");
-    printf("©¦         2.¹ÜÀíÔ±ÕËºÅÃÜÂëĞŞ¸Ä         ©¦\n");
-    printf("©¦                                      ©¦\n");
-    printf("©¦         3.ÍË³ö¹ÜÀíÏµÍ³               ©¦\n");
-    printf("©¦                                      ©¦\n");
-    printf("©¸©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¼\n\n");
-    printf("[-]Çë°´ÕÕÄúµÄĞèÇóÑ¡Ôñ²Ù×÷±àºÅ£º");
+    printf("        â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”       \n");
+    printf("â”Œâ”€â”€â”€â”€â”€â”€â”€â”œ  æ¬¢è¿ä½¿ç”¨åå°ç®¡ç†ç³»ç»Ÿ â”¤â”€â”€â”€â”€â”€â”€â”\n");
+    printf("â”‚       â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜      â”‚\n");
+    printf("â”‚                                      â”‚\n");
+    printf("â”‚         1.æ™¯ç‚¹ä¿¡æ¯æ›´æ”¹               â”‚\n");
+    printf("â”‚                                      â”‚\n");
+    printf("â”‚         2.ç®¡ç†å‘˜è´¦å·å¯†ç ä¿®æ”¹         â”‚\n");
+    printf("â”‚                                      â”‚\n");
+    printf("â”‚         3.é€€å‡ºç®¡ç†ç³»ç»Ÿ               â”‚\n");
+    printf("â”‚                                      â”‚\n");
+    printf("â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜\n\n");
+    printf("[-]è¯·æŒ‰ç…§æ‚¨çš„éœ€æ±‚é€‰æ‹©æ“ä½œç¼–å·ï¼š");
     scanf("%d", &s);
     printf("\n\n");
     return s;
 }
 
-// ³ÌĞòÍË³ö
+// ç¨‹åºé€€å‡º
 void Exit(int *quit)
 {
     int i, j;
     *quit = 0;
     printf("\n");
-    printf("\t¸ĞĞ»ÄúµÄÊ¹ÓÃ£¬Bye!\n");
+    printf("\tæ„Ÿè°¢æ‚¨çš„ä½¿ç”¨ï¼ŒBye!\n");
     printf("\n");
     printf("*     *     *****      *              *\n");
     printf("  * *      *     *      *     *      * \n");
@@ -114,20 +114,20 @@ void Exit(int *quit)
     Sleep(1500);
 }
 
-// ¹ÜÀíÔ±ÏµÍ³ÍË³öº¯Êı
+// ç®¡ç†å‘˜ç³»ç»Ÿé€€å‡ºå‡½æ•°
 void Admin_Exit(int *quit)
 {
     *quit = 0;
-    printf("\n[-]ÕıÔÚÍË³ö......");
+    printf("\n[-]æ­£åœ¨é€€å‡º......");
     Sleep(500);
 }
 
-// ÅĞ¶Ï¾°µã±àºÅÊÇ·ñÕıÈ·
+// åˆ¤æ–­æ™¯ç‚¹ç¼–å·æ˜¯å¦æ­£ç¡®
 int Judge_Num(int num)
 {
     if (num < 1 || num > 8)
     {
-        printf("[-]ÊäÈëµÄ¾°µã±àºÅÓĞÎó£¬ÇëÖØĞÂÊäÈë£¡\n");
+        printf("[-]è¾“å…¥çš„æ™¯ç‚¹ç¼–å·æœ‰è¯¯ï¼Œè¯·é‡æ–°è¾“å…¥ï¼\n");
         return 1;
     }
     else
@@ -136,7 +136,7 @@ int Judge_Num(int num)
     }
 }
 
-// ¶ÁÈ¡ÎÄ¼şÊı¾İ½¨Á¢Í¼
+// è¯»å–æ–‡ä»¶æ•°æ®å»ºç«‹å›¾
 void Create_Map(mgraph *g)
 {
     int i, j, k, e;
@@ -144,18 +144,18 @@ void Create_Map(mgraph *g)
     rf = fopen("data.txt", "r");
     if (rf)
     {
-        fscanf(rf, "%d%d", &g->vexNum, &g->edgNum); // ¶ÁÈ¡¾°µã¸öÊıºÍ±ßÊı
-        for (i = 0; i < g->vexNum; i++)             // ¶ÁÈ¡¶¥µã£¨¾°µã£©ĞÅÏ¢
+        fscanf(rf, "%d%d", &g->vexNum, &g->edgNum); // è¯»å–æ™¯ç‚¹ä¸ªæ•°å’Œè¾¹æ•°
+        for (i = 0; i < g->vexNum; i++)             // è¯»å–é¡¶ç‚¹ï¼ˆæ™¯ç‚¹ï¼‰ä¿¡æ¯
             fscanf(rf, "%d%s%s", &g->vexs[i].num, g->vexs[i].name, g->vexs[i].intro);
-        for (i = 0; i < g->vexNum; i++) // ´´½¨ÁÚ½Ó¾ØÕó
+        for (i = 0; i < g->vexNum; i++) // åˆ›å»ºé‚»æ¥çŸ©é˜µ
             for (j = 0; j < g->vexNum; j++)
             {
                 if (i == j)
                     g->edge[i][j] = 0;
                 else
-                    g->edge[i][j] = INF; // ±íÊ¾²»Í¨
+                    g->edge[i][j] = INF; // è¡¨ç¤ºä¸é€š
             }
-        for (k = 0; k < g->edgNum; k++) // ¸½ÉÏÈ¨ÖØ
+        for (k = 0; k < g->edgNum; k++) // é™„ä¸Šæƒé‡
         {
             fscanf(rf, "%d%d%d", &i, &j, &e);
             g->edge[i][j] = g->edge[j][i] = e;
@@ -166,75 +166,75 @@ void Create_Map(mgraph *g)
         g->edgNum = 0;
 }
 
-// ËùÓĞ¾°µãĞÅÏ¢Êä³ö
+// æ‰€æœ‰æ™¯ç‚¹ä¿¡æ¯è¾“å‡º
 void All_Scenic(mgraph *g)
 {
     int i, j;
-    printf("\n[-]¾°µãĞÅÏ¢ÁĞ±í\n\n");
+    printf("\n[-]æ™¯ç‚¹ä¿¡æ¯åˆ—è¡¨\n\n");
     for (i = 0; i < g->vexNum; i++)
     {
-        printf(" %d:%s\n", g->vexs[i].num, g->vexs[i].name); // Êä³ö¾°µã±àºÅ¡¢Ãû³Æ
+        printf(" %d:%s\n", g->vexs[i].num, g->vexs[i].name); // è¾“å‡ºæ™¯ç‚¹ç¼–å·ã€åç§°
         printf("\n");
     }
 }
 
-// ¾°µãĞÅÏ¢²éÑ¯
+// æ™¯ç‚¹ä¿¡æ¯æŸ¥è¯¢
 void Search_Scenic(mgraph *g)
 {
     int s;
     do
     {
-        printf("[-]ÇëÊäÈëÄúÒª²éÕÒµÄ¾°µã±àºÅ£º");
+        printf("[-]è¯·è¾“å…¥æ‚¨è¦æŸ¥æ‰¾çš„æ™¯ç‚¹ç¼–å·ï¼š");
         scanf("%d", &s);
     } while (Judge_Num(s));
-    printf("\n[-]¾°µãÃû³Æ£º%s\n\n", g->vexs[s - 1].name);
-    printf("[-]¾°µã¼ò½é£º %s\n\n", g->vexs[s - 1].intro);
+    printf("\n[-]æ™¯ç‚¹åç§°ï¼š%s\n\n", g->vexs[s - 1].name);
+    printf("[-]æ™¯ç‚¹ç®€ä»‹ï¼š %s\n\n", g->vexs[s - 1].intro);
     system("pause");
 }
 
-// ²éÑ¯ÀëÎÒ×î½üµÄ¾°µã
+// æŸ¥è¯¢ç¦»æˆ‘æœ€è¿‘çš„æ™¯ç‚¹
 void Search_Distance(mgraph *g)
 {
     int i, s, dis = 9998, res[M];
     do
     {
-        printf("\n[-]ÇëÊäÈëÄúµ±Ç°Î»ÖÃµÄ±àºÅ£º");
+        printf("\n[-]è¯·è¾“å…¥æ‚¨å½“å‰ä½ç½®çš„ç¼–å·ï¼š");
         scanf("%d", &s);
     } while (Judge_Num(s));
     s--;
-    for (i = 0; i < M; i++) // ²éÑ¯×î¶Ì¾àÀë
+    for (i = 0; i < M; i++) // æŸ¥è¯¢æœ€çŸ­è·ç¦»
     {
         if ((g->edge[s][i] <= dis) && (s != i))
         {
             dis = g->edge[s][i];
         }
     }
-    for (i = 0; i < M; i++) // Êä³ö½á¹û
+    for (i = 0; i < M; i++) // è¾“å‡ºç»“æœ
     {
         if (g->edge[s][i] == dis)
         {
-            printf("\n[-]%sÀëÄú×î½ü£¬¾àÀëÊÇ%dÃ×\n", g->vexs[i].name, g->edge[s][i]);
+            printf("\n[-]%sç¦»æ‚¨æœ€è¿‘ï¼Œè·ç¦»æ˜¯%dç±³\n", g->vexs[i].name, g->edge[s][i]);
         }
     }
     printf("\n");
     system("pause");
 }
 
-// µÇÂ½Ğ£Ñéº¯Êı
+// ç™»é™†æ ¡éªŒå‡½æ•°
 int Login()
 {
-    int i = 0, j = 0;                       // ÊäÈëÃÜÂë³¤¶È¡¢ÊäÈë´ÎÊı
-    char correct_pwd[11], input_pwd[11], s; // ÕıÈ·ÃÜÂë¡¢ÊäÈëÃÜÂë¡¢ÁÙÊ±´æ´¢×Ö·û
+    int i = 0, j = 0;                       // è¾“å…¥å¯†ç é•¿åº¦ã€è¾“å…¥æ¬¡æ•°
+    char correct_pwd[11], input_pwd[11], s; // æ­£ç¡®å¯†ç ã€è¾“å…¥å¯†ç ã€ä¸´æ—¶å­˜å‚¨å­—ç¬¦
     FILE *rf;
     rf = fopen("pwd.txt", "r");
-    fscanf(rf, "%s", correct_pwd); // ¶ÁÈ¡ÃÜÂë
+    fscanf(rf, "%s", correct_pwd); // è¯»å–å¯†ç 
     decrypt(correct_pwd);
-    printf("\n[-]ÇëÊäÈë¹ÜÀíÔ±ÃÜÂë£º\n");
+    printf("\n[-]è¯·è¾“å…¥ç®¡ç†å‘˜å¯†ç ï¼š\n");
     while (j < Input_Max)
     {
         while (s = getch())
         {
-            if (s == '\r') // »Ø³µÍË³öÊäÈë
+            if (s == '\r') // å›è½¦é€€å‡ºè¾“å…¥
             {
                 input_pwd[i] = '\0';
                 break;
@@ -244,7 +244,7 @@ int Login()
                 if (i != 0)
                 {
                     i--;
-                    printf("\b \b"); // »ØÍË¡¢ÕÚµ²*¡¢»ØÍË
+                    printf("\b \b"); // å›é€€ã€é®æŒ¡*ã€å›é€€
                 }
             }
             else if (i < Pwd_Max)
@@ -255,29 +255,29 @@ int Login()
         }
         if (strcmp(input_pwd, correct_pwd) == 0 ? 1 : 0)
         {
-            printf("\n[-]µÇÂ½³É¹¦£¡¼´½«½øÈë¹ÜÀíÒ³Ãæ......\n");
+            printf("\n[-]ç™»é™†æˆåŠŸï¼å³å°†è¿›å…¥ç®¡ç†é¡µé¢......\n");
             Sleep(1000);
-            system("cls"); // µÇÂ¼ĞÅÏ¢ÇåÆÁ
+            system("cls"); // ç™»å½•ä¿¡æ¯æ¸…å±
             return strcmp(input_pwd, correct_pwd) == 0 ? 1 : 0;
         }
         else
         {
-            i = 0; // ÃÜÂë³õÊ¼»¯
+            i = 0; // å¯†ç åˆå§‹åŒ–
             if (++j == Input_Max)
             {
-                printf("\n[-]ÊäÈë´íÎó´ÎÊı³¬³öÏŞÖÆ·¶Î§£¬¼´½«Ìø×ªÖÁÖ÷²Ëµ¥......\n");
+                printf("\n[-]è¾“å…¥é”™è¯¯æ¬¡æ•°è¶…å‡ºé™åˆ¶èŒƒå›´ï¼Œå³å°†è·³è½¬è‡³ä¸»èœå•......\n");
                 Sleep(1000);
             }
             else
             {
-                printf("\n[-]ÃÜÂëÊäÈë´íÎó£¬ÇëÖØĞÂÊäÈë£¬»¹Ê£ÏÂ%d´Î»ú»á£¡\n", Input_Max - j);
+                printf("\n[-]å¯†ç è¾“å…¥é”™è¯¯ï¼Œè¯·é‡æ–°è¾“å…¥ï¼Œè¿˜å‰©ä¸‹%dæ¬¡æœºä¼šï¼\n", Input_Max - j);
             }
         }
     }
     return 0;
 }
 
-// ¾°µãĞÅÏ¢ĞŞ¸Äº¯Êı
+// æ™¯ç‚¹ä¿¡æ¯ä¿®æ”¹å‡½æ•°
 void Change_Info(mgraph *g)
 {
     int i, j, s;
@@ -285,37 +285,37 @@ void Change_Info(mgraph *g)
     rf = fopen("data.txt", "w");
     do
     {
-        printf("\n[-]ÇëÊäÈëÄúÒª¸ü¸ÄĞÅÏ¢¾°µãµÄ±àºÅ£º");
+        printf("\n[-]è¯·è¾“å…¥æ‚¨è¦æ›´æ”¹ä¿¡æ¯æ™¯ç‚¹çš„ç¼–å·ï¼š");
         scanf("%d", &s);
     } while (Judge_Num(s));
     s--;
-    printf("\n[-]ÇëÊäÈëĞÂµÄ¾°µãÃû³Æ£º");
+    printf("\n[-]è¯·è¾“å…¥æ–°çš„æ™¯ç‚¹åç§°ï¼š");
     scanf("%s", g->vexs[s].name);
-    printf("\n[-]ÇëÊäÈëĞÂµÄµÄ¾°µã¼ò½é£º");
+    printf("\n[-]è¯·è¾“å…¥æ–°çš„çš„æ™¯ç‚¹ç®€ä»‹ï¼š");
     scanf("%s", g->vexs[s].intro);
-    fprintf(rf, "%d %d\n", g->vexNum, g->edgNum); // Ğ´Èë¾°µã¸öÊı¡¢±ßÊı
-    for (i = 0; i < g->vexNum; i++)               // Ğ´Èë¾°µãĞÅÏ¢
+    fprintf(rf, "%d %d\n", g->vexNum, g->edgNum); // å†™å…¥æ™¯ç‚¹ä¸ªæ•°ã€è¾¹æ•°
+    for (i = 0; i < g->vexNum; i++)               // å†™å…¥æ™¯ç‚¹ä¿¡æ¯
         fprintf(rf, "%d %s\n%s\n", g->vexs[i].num, g->vexs[i].name, g->vexs[i].intro);
-    for (i = 0; i < g->vexNum; i++) // Ğ´Èë¾°µã±ßÈ¨ÖØ
+    for (i = 0; i < g->vexNum; i++) // å†™å…¥æ™¯ç‚¹è¾¹æƒé‡
         for (j = i; j < g->vexNum; j++)
             if (g->edge[i][j] != 0 && g->edge[i][j] != INF)
                 fprintf(rf, "%d %d %d\n", i, j, g->edge[i][j]);
     fclose(rf);
-    printf("\n[-]¾°µãĞÅÏ¢¸ü¸Ä³É¹¦£¬ÖØÆô³ÌĞòÉúĞ§£¡");
+    printf("\n[-]æ™¯ç‚¹ä¿¡æ¯æ›´æ”¹æˆåŠŸï¼Œé‡å¯ç¨‹åºç”Ÿæ•ˆï¼");
     Sleep(1000);
 }
 
-// ¹ÜÀíÔ±ÃÜÂë¸ü¸Äº¯Êı
+// ç®¡ç†å‘˜å¯†ç æ›´æ”¹å‡½æ•°
 void Change_Pwd()
 {
-    int i = 0;           // ÊäÈëÃÜÂë³¤¶È
-    char New_Pwd[11], s; // ĞÂÃÜÂë¡¢ÁÙÊ±´æ´¢×Ö·û
+    int i = 0;           // è¾“å…¥å¯†ç é•¿åº¦
+    char New_Pwd[11], s; // æ–°å¯†ç ã€ä¸´æ—¶å­˜å‚¨å­—ç¬¦
     FILE *rf;
     rf = fopen("pwd.txt", "w");
-    printf("\n[-]ÇëÊäÈëĞÂÃÜÂë£º");
+    printf("\n[-]è¯·è¾“å…¥æ–°å¯†ç ï¼š");
     while (s = getch())
     {
-        if (s == '\r') // »Ø³µÍË³öÊäÈë
+        if (s == '\r') // å›è½¦é€€å‡ºè¾“å…¥
         {
             New_Pwd[i] = '\0';
             break;
@@ -325,7 +325,7 @@ void Change_Pwd()
             if (i != 0)
             {
                 i--;
-                printf("\b \b"); // »ØÍË¡¢ÕÚµ²*¡¢»ØÍË
+                printf("\b \b"); // å›é€€ã€é®æŒ¡*ã€å›é€€
             }
         }
         else if (i < Pwd_Max)
@@ -336,12 +336,12 @@ void Change_Pwd()
     }
     encrypt(New_Pwd);
     fprintf(rf, "%s", New_Pwd);
-    printf("\n\n[-]ÃÜÂë¸ü¸Ä³É¹¦£¡");
+    printf("\n\n[-]å¯†ç æ›´æ”¹æˆåŠŸï¼");
     Sleep(1000);
     fclose(rf);
 }
 
-// ¹ÜÀíÏµÍ³
+// ç®¡ç†ç³»ç»Ÿ
 void Admin_System()
 {
     if (Login())
@@ -353,27 +353,27 @@ void Admin_System()
         {
             switch (Admin_Menu())
             {
-            case 1: // ¾°µãĞÅÏ¢¸ü¸Ä
+            case 1: // æ™¯ç‚¹ä¿¡æ¯æ›´æ”¹
                 system("cls");
                 Change_Info(&g);
                 break;
-            case 2: // ¹ÜÀíÔ±ÃÜÂë¸ü¸Ä
+            case 2: // ç®¡ç†å‘˜å¯†ç æ›´æ”¹
                 system("cls");
                 Change_Pwd();
                 break;
-            case 3: // ÍË³ö¹ÜÀíÏµÍ³
+            case 3: // é€€å‡ºç®¡ç†ç³»ç»Ÿ
                 system("cls");
                 Admin_Exit(&quit);
                 break;
             default:
-                printf("[-]±àºÅÊäÈë´íÎó£¬ÇëÖØĞÂÊäÈë£¡\n\n");
+                printf("[-]ç¼–å·è¾“å…¥é”™è¯¯ï¼Œè¯·é‡æ–°è¾“å…¥ï¼\n\n");
             }
             system("cls");
         }
     }
 }
 
-// ¼ÓÃÜº¯Êı
+// åŠ å¯†å‡½æ•°
 void encrypt(char *s)
 {
     int i;
@@ -384,7 +384,7 @@ void encrypt(char *s)
             s[i] -= 2;
 }
 
-// ½âÃÜº¯Êı
+// è§£å¯†å‡½æ•°
 void decrypt(char *s)
 {
     int i;
@@ -396,100 +396,100 @@ void decrypt(char *s)
 }
 
 void showPath(int path[], int v0, int v1)
-{ //Êä³öv0µ½vµÄÂ·¾¶
+{ //è¾“å‡ºv0åˆ°vçš„è·¯å¾„
     if (v1 == v0)
     {
         switch (v0)
         {
         case 0:
-            printf("°Ë½ÇÂ¥");
+            printf("å…«è§’æ¥¼");
             break;
         case 1:
-            printf("ºì¾üÒ½Ôº");
+            printf("çº¢å†›åŒ»é™¢");
             break;
         case 2:
-            printf("»ÆÑó½çÉÚ¿Ú");
+            printf("é»„æ´‹ç•Œå“¨å£");
             break;
         case 3:
-            printf("°ÙÖñÔ°¾°Çø");
+            printf("ç™¾ç«¹å›­æ™¯åŒº");
             break;
         case 4:
-            printf("ÁìĞä·å");
+            printf("é¢†è¢–å³°");
             break;
         case 5:
-            printf("ÄÏÉ½¹«Ô°");
+            printf("å—å±±å…¬å›­");
             break;
         case 6:
-            printf("¾£ÖñÉ½¾°Çø");
+            printf("è†ç«¹å±±æ™¯åŒº");
             break;
         case 7:
-            printf("±Ê¼ÜÉ½");
+            printf("ç¬”æ¶å±±");
             break;
         default:
-            printf("[-]±àºÅÊäÈë´íÎó£¡ÇëÖØĞÂÊäÈë£¡\n\n");
+            printf("[-]ç¼–å·è¾“å…¥é”™è¯¯ï¼è¯·é‡æ–°è¾“å…¥ï¼\n\n");
         }
         return;
     }
-    showPath(path, v0, path[v1]); //µİ¹é£¬Ö±µ½µÚÒ»¸ö¾°µã
+    showPath(path, v0, path[v1]); //é€’å½’ï¼Œç›´åˆ°ç¬¬ä¸€ä¸ªæ™¯ç‚¹
     switch (v1)
     {
     case 0:
-        printf("->°Ë½ÇÂ¥");
+        printf("->å…«è§’æ¥¼");
         break;
     case 1:
-        printf("->ºì¾üÒ½Ôº");
+        printf("->çº¢å†›åŒ»é™¢");
         break;
     case 2:
-        printf("->»ÆÑó½çÉÚ¿Ú");
+        printf("->é»„æ´‹ç•Œå“¨å£");
         break;
     case 3:
-        printf("->°ÙÖñÔ°¾°Çø");
+        printf("->ç™¾ç«¹å›­æ™¯åŒº");
         break;
     case 4:
-        printf("->ÁìĞä·å");
+        printf("->é¢†è¢–å³°");
         break;
     case 5:
-        printf("->ÄÏÉ½¹«Ô°");
+        printf("->å—å±±å…¬å›­");
         break;
     case 6:
-        printf("->¾£ÖñÉ½¾°Çø");
+        printf("->è†ç«¹å±±æ™¯åŒº");
         break;
     case 7:
-        printf("->±Ê¼ÜÉ½");
+        printf("->ç¬”æ¶å±±");
         break;
     default:
-        printf("[-]±àºÅÊäÈë´íÎó£¡ÇëÖØĞÂÊäÈë£¡\n\n");
+        printf("[-]ç¼–å·è¾“å…¥é”™è¯¯ï¼è¯·é‡æ–°è¾“å…¥ï¼\n\n");
     }
 }
 
 void showResult(int v0, int v1, int dist[], int path[])
-{ //Êä³ö½á¹û
+{ //è¾“å‡ºç»“æœ
     showPath(path, v0, v1);
-    printf("£¬ÄúĞèÒª×ßµÄ¾àÀëÎª%dÃ×\n\n", dist[v1]);
+    printf("ï¼Œæ‚¨éœ€è¦èµ°çš„è·ç¦»ä¸º%dç±³\n\n", dist[v1]);
 }
 
 void Ai_Plan(mgraph *g)
 {
-    int dist[M];                       //¾àÀëÏòÁ¿£¬dist[i]´æ´¢µ±Ç°½Úµãvµ½iµÄ×îĞ¡³¤¶È
-    int path[M];                       //Â·¾¶ÏòÁ¿£¬path[i]=k;±íÊ¾´Ókµ½i
-    int final[M];                      //±íÊ¾µ±Ç°ÔªËØÊÇ·ñÇó³ö×î¶ÌÂ·¾¶
-    int i, j, c, v, min, minV, v0, v1; //min¼ÇÂ¼×îĞ¡±ßµÄÖµ,minV¼ÇÂ¼¶ÔÓ¦µÄµã
+    int dist[M];                       //è·ç¦»å‘é‡ï¼Œdist[i]å­˜å‚¨å½“å‰èŠ‚ç‚¹våˆ°içš„æœ€å°é•¿åº¦
+    int path[M];                       //è·¯å¾„å‘é‡ï¼Œpath[i]=k;è¡¨ç¤ºä»kåˆ°i
+    int final[M];                      //è¡¨ç¤ºå½“å‰å…ƒç´ æ˜¯å¦æ±‚å‡ºæœ€çŸ­è·¯å¾„
+    int i, j, c, v, min, minV, v0, v1; //minè®°å½•æœ€å°è¾¹çš„å€¼,minVè®°å½•å¯¹åº”çš„ç‚¹
 
-    //1.»ñÈ¡ÆğµãºÍÖÕµã
+    //1.è·å–èµ·ç‚¹å’Œç»ˆç‚¹
     do
     {
-        printf("\n[-]Äú´ÓÄÄ¸ö¾°µã³ö·¢(±àºÅ)£º");
+        printf("\n[-]æ‚¨ä»å“ªä¸ªæ™¯ç‚¹å‡ºå‘(ç¼–å·)ï¼š");
         scanf("%d", &v0);
     } while (Judge_Num(v0));
     v0--;
     do
     {
-        printf("\n[-]ÄúÏëÈ¥ÄÄ¸ö¾°µã(±àºÅ)£º");
+        printf("\n[-]æ‚¨æƒ³å»å“ªä¸ªæ™¯ç‚¹(ç¼–å·)ï¼š");
         scanf("%d", &v1);
     } while (Judge_Num(v1));
     v1--;
 
-    //2.³õÊ¼»¯¼¯ºÏSÓë¾àÀëÏòÁ¿dist
+    //2.åˆå§‹åŒ–é›†åˆSä¸è·ç¦»å‘é‡dist
     for (i = 0; i < g->vexNum; i++)
     {
         dist[i] = INF;
@@ -499,36 +499,36 @@ void Ai_Plan(mgraph *g)
     v = v0;
     dist[v] = 0;
 
-    //2.ÒÀ´ÎÕÒ³ön-1¸ö½Úµã¼ÓÈëSÖĞ
+    //2.ä¾æ¬¡æ‰¾å‡ºn-1ä¸ªèŠ‚ç‚¹åŠ å…¥Sä¸­
     for (c = 1; c < g->vexNum; c++)
-    { //µ½ÆäÓàn-1¸öµãµÄ×î¶Ì¾àÀë(½øĞĞn-1´ÎÑ­»·)£¬Ã¿´ÎÇó³öÒ»¸öµãµÄ×î¶Ì¾àÀë(ĞÂÔöÒ»¸öµã)£¬cÆğ¼ÆÊı×÷ÓÃ
+    { //åˆ°å…¶ä½™n-1ä¸ªç‚¹çš„æœ€çŸ­è·ç¦»(è¿›è¡Œn-1æ¬¡å¾ªç¯)ï¼Œæ¯æ¬¡æ±‚å‡ºä¸€ä¸ªç‚¹çš„æœ€çŸ­è·ç¦»(æ–°å¢ä¸€ä¸ªç‚¹)ï¼Œcèµ·è®¡æ•°ä½œç”¨
         min = INF;
-        final[v] = 1; //ÈÃv¼ÓÈë¼¯ºÏs
+        final[v] = 1; //è®©våŠ å…¥é›†åˆs
         for (i = 0; i < g->vexNum; i++)
-        { //É¨ÃèGÖĞvµÄËùÓĞÁÚ½Óµãi£¬²¢Ñ¡È¡×îĞ¡Öµ£¬v->minV£¬ÖµÎªmin
-            //ĞŞ¸ÄSÓëv-sÖĞ¸÷½ÚµãµÄ¾àÀë
+        { //æ‰«æGä¸­vçš„æ‰€æœ‰é‚»æ¥ç‚¹iï¼Œå¹¶é€‰å–æœ€å°å€¼ï¼Œv->minVï¼Œå€¼ä¸ºmin
+            //ä¿®æ”¹Sä¸v-sä¸­å„èŠ‚ç‚¹çš„è·ç¦»
             if (i != v && final[i] == 0 && dist[v] + g->edge[v][i] < dist[i])
-            {                                      //Èç¹û·¢ÏÖÁË¸üĞ¡µÄ
-                dist[i] = dist[v] + g->edge[v][i]; //ĞŞ¸ÄÂ·¾¶µÄ×îĞ¡¾àÀë
-                path[i] = v;                       //ĞŞ¸ÄÂ·¾¶
+            {                                      //å¦‚æœå‘ç°äº†æ›´å°çš„
+                dist[i] = dist[v] + g->edge[v][i]; //ä¿®æ”¹è·¯å¾„çš„æœ€å°è·ç¦»
+                path[i] = v;                       //ä¿®æ”¹è·¯å¾„
             }
-            if (final[i] == 0 && min > dist[i]) //final[i]==0£¬ÅÅ³ı¼¯ºÏSÒÑ´æÔÚµÄ½áµã
+            if (final[i] == 0 && min > dist[i]) //final[i]==0ï¼Œæ’é™¤é›†åˆSå·²å­˜åœ¨çš„ç»“ç‚¹
             {
-                min = dist[i]; //ĞŞ¸Äµ±Ç°×îĞ¡Öµ
-                minV = i;      //ĞŞ¸Ä×îĞ¡ÖµµÄ½Úµã
+                min = dist[i]; //ä¿®æ”¹å½“å‰æœ€å°å€¼
+                minV = i;      //ä¿®æ”¹æœ€å°å€¼çš„èŠ‚ç‚¹
             }
         }
-        //printf("\nÑ¡³ö±ß£º%d ->%d( %d )", v,minV,min);
-        v = minV; //¸üĞÂµ±Ç°½Úµã£¬´ÓĞÂ½Úµã¿ªÊ¼ÕÒ×î¶Ì¾àÀë
+        //printf("\né€‰å‡ºè¾¹ï¼š%d ->%d( %d )", v,minV,min);
+        v = minV; //æ›´æ–°å½“å‰èŠ‚ç‚¹ï¼Œä»æ–°èŠ‚ç‚¹å¼€å§‹æ‰¾æœ€çŸ­è·ç¦»
     }
-    printf("\n[-]×î¶ÌÂ·¾¶Îª£º\n\n");
+    printf("\n[-]æœ€çŸ­è·¯å¾„ä¸ºï¼š\n\n");
     printf("[-]");
     showResult(v0, v1, dist, path);
     system("pause");
 }
 
 void showFloydPath(mgraph *g, int path[][M], int v0, int v)
-{ //Êä³öv0µ½vµÄËùÓĞÖĞ¼ä½áµã
+{ //è¾“å‡ºv0åˆ°vçš„æ‰€æœ‰ä¸­é—´ç»“ç‚¹
     int k = path[v0][v];
     if (k == -1)
         return;
@@ -538,18 +538,18 @@ void showFloydPath(mgraph *g, int path[][M], int v0, int v)
 }
 
 void showFloydResult(mgraph *g, int dist[][M], int path[][M])
-{ //Êä³öfloydµÄ½á¹û
+{ //è¾“å‡ºfloydçš„ç»“æœ
     int u, v;
     for (u = 0; u < g->vexNum; u++)
         for (v = 0; v < g->vexNum; v++)
             if (dist[u][v] == INF)
-                printf("[%d->%d]:²»¿É´ï.\n", u, v);
+                printf("[%d->%d]:ä¸å¯è¾¾.\n", u, v);
             else if(g->vexs[u].num != g->vexs[v].num)
             {
                 printf("[%d->%d]:%s->", g->vexs[u].num, g->vexs[v].num, g->vexs[u].name);
                 showFloydPath(g, path, u, v);
                 printf("%s", g->vexs[v].name);
-                printf("£¬×ÜÂ·³Ì%dÃ×\n", dist[u][v]);
+                printf("ï¼Œæ€»è·¯ç¨‹%dç±³\n", dist[u][v]);
             }
 }
 
@@ -558,7 +558,7 @@ void floyd(mgraph *g)
     int dist[M][M];
     int path[M][M];
     int u, v, k;
-    for (u = 0; u < g->vexNum; u++) //³õÊ¼»¯
+    for (u = 0; u < g->vexNum; u++) //åˆå§‹åŒ–
         for (v = 0; v < g->vexNum; v++)
         {
             dist[u][v] = g->edge[u][v];
@@ -572,7 +572,7 @@ void floyd(mgraph *g)
                     dist[u][v] = dist[u][k] + dist[k][v];
                     path[u][v] = k;
                 }
-    printf("\nËùÓĞ¾°µãµÄ¾àÀëºÍÂ·¾¶ÈçÏÂ£º\n");
+    printf("\næ‰€æœ‰æ™¯ç‚¹çš„è·ç¦»å’Œè·¯å¾„å¦‚ä¸‹ï¼š\n");
     showFloydResult(g, dist, path);
     system("pause");
 }
